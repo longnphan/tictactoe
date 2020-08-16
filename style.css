@@ -1,0 +1,47 @@
+body {
+  background-color: #191919;
+}
+
+.top-row, .middle-row, .bottom-row {
+  display: flex;
+  user-select: none;
+}
+
+button {
+  height: 60px;
+  width: 275px;
+  border-radius: 10px;
+  font-size: 2rem;
+  background-color: lightgray;
+  border: none;
+}
+.container {
+  width: 100%;
+}
+.grid {
+  line-height: 275px;
+  text-align: center;
+  font-size: 15rem;
+  font-family: verdana;
+}
+
+.top-row div{
+  height: 275px;
+  width: 275px;
+  background-color: lightgray;
+  border: 1px black solid;
+}
+
+.middle-row div{
+  height: 275px;
+  width: 275px;
+  background-color: lightgray;
+  border: 1px black solid;
+}
+
+.bottom-row div{
+  height: 275px;
+  width: 275px;
+  background-color: lightgray;
+  border: 1px black solid;
+}
