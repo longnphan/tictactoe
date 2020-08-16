@@ -1,0 +1,173 @@
+<html>
+<head>
+<title>LP Tic Tac Toe JS game</title>
+<style>
+  body {
+  background-color: #191919;
+}
+
+.top-row, .middle-row, .bottom-row {
+  display: flex;
+  user-select: none;
+}
+
+.grid {
+  line-height: 100px;
+  text-align: center;
+  font-size: 6rem;
+  font-family: verdana;
+}
+
+.top-row div{
+  height: 100px;
+  width: 100px;
+  background-color: lightgray;
+  border: 1px black solid;
+}
+
+.middle-row div{
+  height: 100px;
+  width: 100px;
+  background-color: lightgray;
+  border: 1px black solid;
+}
+
+.bottom-row div{
+  height: 100px;
+  width: 100px;
+  background-color: lightgray;
+  border: 1px black solid;
+}
+
+.grid:hover {
+  transform: scale(0.97);
+  filter: brightness(110%);
+}
+</style>
+
+</head>
+
+<body>
+  <button onclick="reset()">Reset</button
+  <div>
+    <h2></h2>
+  </div>
+  <div class="container">
+    <div class="top-row">
+     <div class="one grid" data-index="0"></div>
+     <div class="two grid" data-index="1"></div>
+     <div class="three grid" data-index="2"></div>
+    </div>
+
+    <div class="middle-row">
+     <div class="four grid" data-index="3"></div>
+     <div class="five grid" data-index="4"></div>
+     <div class="six grid"data-index="5"></div>
+    </div>
+
+    <div class="bottom-row">
+     <div class="seven grid" data-index="6"></div>
+     <div class="eight grid" data-index="7"></div>
+     <div class="nine grid" data-index="8"></div>
+    </div>
+  </div>
+
+<script>
+  const tile1 = document.querySelector('.one');
+const tile2 = document.querySelector('.two');
+const tile3 = document.querySelector('.three');
+const tile4 = document.querySelector('.four');
+const tile5 = document.querySelector('.five');
+const tile6 = document.querySelector('.six');
+const tile7 = document.querySelector('.seven');
+const tile8 = document.querySelector('.eight');
+const tile9 = document.querySelector('.nine');
+
+let arr = [0, 1 , 2, 3, 4, 5, 6, 7, 8];
+let count = 0;
+
+player1 = true;
+
+const element = document.querySelectorAll('.grid');
+element.forEach(item => {item.addEventListener('click', markTile)})
+
+function markTile() {
+  this.innerHTML = player1 ? 'X' : 'O';
+  let i = this.dataset.index;
+  arr[i] = player1 ? 'X' : 'O';
+  this.removeEventListener('click', markTile);
+  player1 === true ? player1 = false : player1 = true;
+
+
+  if (arr[0]  == arr[1] && arr[0] == arr[2]) {
+    tile1.style.backgroundColor = 'yellow';
+    tile2.style.backgroundColor = 'yellow';
+    tile3.style.backgroundColor = 'yellow';
+    setTimeout(function() {alert(`"${arr[0]}"  Won!!!`);
+    reset();}, 200)
+    // alert(`"${arr[0]}"  Won!!!`);
+    // reset();
+  } else if (arr[3] == arr[4] && arr[3] == arr[5]) {
+    tile4.style.backgroundColor = 'yellow';
+    tile5.style.backgroundColor = 'yellow';
+    tile6.style.backgroundColor = 'yellow';
+    setTimeout(function() {alert(`"${arr[3]}"  Won!!!`);
+    reset();}, 200)
+
+  } else if (arr[6] == arr[7] && arr[6] == arr[8]) {
+    tile7.style.backgroundColor = 'yellow';
+    tile8.style.backgroundColor = 'yellow';
+    tile9.style.backgroundColor = 'yellow';
+    setTimeout(function() {alert(`"${arr[6]}"  Won!!!`);
+    reset();}, 200)
+
+  } else if (arr[0] == arr[4] && arr[0] == arr[8]) {
+    tile1.style.backgroundColor = 'yellow';
+    tile5.style.backgroundColor = 'yellow';
+    tile9.style.backgroundColor = 'yellow';
+    setTimeout(function() {alert(`"${arr[0]}"  Won!!!`);
+    reset();}, 200)
+
+  } else if (arr[2] == arr[4] && arr[2] == arr[6]) {
+    tile3.style.backgroundColor = 'yellow';
+    tile5.style.backgroundColor = 'yellow';
+    tile7.style.backgroundColor = 'yellow';
+    setTimeout(function() {alert(`"${arr[2]}"  Won!!!`);
+    reset();}, 200)
+
+  } else if (arr[0] == arr[3] && arr[0] == arr[6]) {
+    tile1.style.backgroundColor = 'yellow';
+    tile4.style.backgroundColor = 'yellow';
+    tile7.style.backgroundColor = 'yellow';
+    setTimeout(function() {alert(`"${arr[0]}"  Won!!!`);
+    reset();}, 200)
+
+     } else if (arr[2] == arr[5] && arr[2] == arr[8]) {
+    tile3.style.backgroundColor = 'yellow';
+    tile6.style.backgroundColor = 'yellow';
+    tile9.style.backgroundColor = 'yellow';
+    setTimeout(function() {alert(`"${arr[2]}"  Won!!!`);
+    reset();}, 200)
+     }
+
+ count++;
+  if(count === 9) {
+    alert('Tie');
+    reset();
+  }
+}
+
+
+function reset() {
+  element.forEach(item => item.innerHTML = '');
+  element.forEach(item => {item.addEventListener('click', markTile);})
+  element.forEach(item => item.style.backgroundColor = 'lightgray');
+  arr = [0, 1 , 2, 3, 4, 5, 6, 7, 8];
+  count = 0;
+  player1 = true;
+}
+
+</script>
+
+</body>
+</html>
