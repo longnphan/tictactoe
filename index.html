@@ -13,10 +13,13 @@
 
 button {
   height: 60px;
-  width: 150px;
+  width: 300px;
   border-radius: 10px;
   font-size: 2rem;
+  background-color: lightgray;
+  border: none;
 }
+
 .grid {
   line-height: 300px;
   text-align: center;
@@ -153,6 +156,12 @@ function markTile() {
     tile6.style.backgroundColor = 'yellow';
     tile9.style.backgroundColor = 'yellow';
     setTimeout(function() {alert(`"${arr[2]}"  Won!!!`);
+    reset();}, 200)
+    } else if (arr[1] == arr[4] && arr[1] == arr[7]) {
+    tile2.style.backgroundColor = 'yellow';
+    tile5.style.backgroundColor = 'yellow';
+    tile8.style.backgroundColor = 'yellow';
+    setTimeout(function() {alert(`"${arr[1]}"  Won!!!`);
     reset();}, 200)
      }
 
